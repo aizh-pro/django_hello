@@ -85,3 +85,17 @@ class ArticleLike(models.Model):
     class Meta:
         verbose_name = 'Лайк'
         verbose_name_plural = 'Лайки статей'
+
+
+class CommentLike(models.Model):
+    user = models.ForeignKey(get_user_model(), on_delete=models.CASCADE,
+                             related_name='comment_likes', verbose_name='Пользователь')
+    comment = models.ForeignKey('webapp.Comment', on_delete=models.CASCADE,
+                                related_name='likes', verbose_name='Коментарий')
+
+    def __str__(self):
+        return f'{self.user.username} - {self.comment.text}'
+
+    class Meta:
+        verbose_name = 'Лайк'
+        verbose_name_plural = 'Лайки комментариев'
