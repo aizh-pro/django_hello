@@ -223,3 +223,6 @@ class DeleteView(View):
 
     def get_redirect_url(self):
         return self.redirect_url
+
+
+
