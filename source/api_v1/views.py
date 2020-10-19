@@ -80,7 +80,7 @@ class ArticleDeleteView(View):
         print(kwargs['pk'])
         article = Article.objects.get(pk=kwargs['pk'])
         article.delete()
-        return JsonResponse(article.pk)
+        return JsonResponse(data={"id": kwargs['pk']})
 
 
 class ArticleFullView(APIView):
@@ -105,7 +105,8 @@ class ArticleFullView(APIView):
 
     def delete(self, request, pk):
         article = self.get_object(pk)
+        article_id = pk
         article.delete()
-        return Response(status=status.HTTP_204_NO_CONTENT)
+        return Response({"id": article_id}, status=status.HTTP_204_NO_CONTENT)
 
 

@@ -11,6 +11,6 @@ urlpatterns = [
     path('article/create/', ArticleCreateView.as_view(), name='article_create'),
     path('article/detail/<int:pk>/', ArticleDetailView.as_view(), name='article_view'),
     path('article/update/<int:pk>/', ArticleUpdateView.as_view(), name='article_update_view'),
-    path('article/detele/<int:pk>/', ArticleDeleteView.as_view(), name='article_delete_view'),
+    path('article/delete/<int:pk>/', ArticleDeleteView.as_view(), name='article_delete_view'),
     path('article/<int:pk>/', ArticleFullView.as_view(), name='article_full_view'), # здесь в одном view можно удалить, просмотреть, изменить статью
 ]
