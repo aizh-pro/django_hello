@@ -19,9 +19,9 @@
         <p class="pre">{{ article.text }}</p>
         <p>By:
             <a href="{% url 'accounts:detail' article.author_id %}">{{ article.author }}</a>
-{#            | {{ article.created_at|date:"d.m.Y H:i:s" }}#}
+            | {{ article.created_at|date:"d.m.Y H:i:s" }}
         </p>
-{#        <p>Published at: {{ article.publish_at|date: "d.m.Y H:i:s" }}</p>#}
+        <p>Published at: {{ article.publish_at|date: "d.m.Y H:i:s" }}</p>
         <p>Tags: {% for tag in article.tags.all %}{{ tag.name }}{% if not forloop.last %}, {% endif %}{% endfor %}</p>
         {% if user.is_authenticated %}
                     <p>
